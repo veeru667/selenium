@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,12 +21,14 @@ public class App {
         
     	System.out.println("Hello World!");
         
-        WebDriver driver = new ChromeDriver();
         
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        WebDriver driver = new ChromeDriver(options);
         
         //1. Open the URL
-        driver.get("http://13.58.166.105:8080/addressbook-2.0/");
-        
+       // driver.get("http://13.58.166.105:8080/addressbook-2.0/");
+        driver.get("http://18.220.79.163:8080/addressbook-2.0/");
         //invoke implicit wait
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));
         
@@ -86,7 +89,7 @@ public class App {
         
         driver.quit();   
         
-        
+        System.out.println("Script Executed and Result Captured");
         
         
         
